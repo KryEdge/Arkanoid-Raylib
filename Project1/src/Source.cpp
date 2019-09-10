@@ -565,7 +565,7 @@ int main(void)
 			DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
 
 			DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
-			DrawText("Para Jugar presione Enter", 210, 400, 30, WHITE);
+			DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
 			DrawText("A             D", 270, 300, 40, WHITE);
 			EndDrawing();
 
@@ -584,7 +584,7 @@ int main(void)
 				}
 			}
 
-			if (IsKeyDown(KEY_ENTER))
+			if (IsKeyPressed(KEY_ENTER))
 			{
 				UnloadTexture(title);
 				game = true;
@@ -627,6 +627,13 @@ int main(void)
 			DrawText("YOU DIED", 200, screenHeight / 2, 50, RED);
 			DrawText(FormatText(" %i", contadorP1), 340, 300, 50, WHITE);
 			DrawText(FormatText("Puntaje:"), 200, 300, 30, WHITE);
+			if (IsKeyPressed(KEY_ENTER))
+			{
+				playerLives = 3;
+				contadorNivel = 1;
+				enemigosRestantes = 30;
+				LoadTexture("Assets/Title.png");
+			}
 			EndDrawing();
 		}
 		//----------------------------------------------------------------------------------
