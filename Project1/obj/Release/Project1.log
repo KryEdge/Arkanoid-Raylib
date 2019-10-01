@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(243): warning C4244: '*=': conversión de 'double' a 'int'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(249): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(270): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(273): warning C4244: '*=': conversión de 'double' a 'int'; posible pérdida de datos
@@ -50,16 +49,16 @@ c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(156): war
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   Project1.vcxproj -> C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\bin\Release\Arkanoid.exe
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\fondo.jpg
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Hit.ogg
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Hit.wav
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Hydrogen.ogg
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\P1.png
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\P1long.png
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\P1short.png
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Pickup.ogg
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Pickup.wav
-  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\Project1\Assets\Title.png
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\fondo.jpg
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Hit.ogg
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Hit.wav
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Hydrogen.ogg
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\P1.png
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\P1long.png
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\P1short.png
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Pickup.ogg
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Pickup.wav
+  C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\res\Assets\Title.png
   10 archivo(s) copiado(s)
   C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\libs\raylib\bin\raylib.dll
   1 archivo(s) copiado(s)

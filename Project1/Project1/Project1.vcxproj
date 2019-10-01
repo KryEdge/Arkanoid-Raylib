@@ -123,7 +123,7 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>Xcopy $(SolutionDir)Project1\Assets $(OutDir)Assets /y
+      <Command>Xcopy $(SolutionDir)res\Assets $(OutDir)Assets /y
 Xcopy $(SolutionDir)libs\raylib\bin\raylib.dll $(OutDir) /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

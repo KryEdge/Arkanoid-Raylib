@@ -159,15 +159,15 @@ int main(void)
 	InitWindow(screenWidth, screenHeight, "Bad Arkanoid");
 	InitAudioDevice();
 
-	Texture2D title = LoadTexture("Assets/Title.png");
-	Texture2D player = LoadTexture("Assets/P1.png");
-	Texture2D backG = LoadTexture("Assets/fondo.jpg");
-	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
-	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
+	Texture2D title = LoadTexture("res/Assets/Title.png");
+	Texture2D player = LoadTexture("res/Assets/P1.png");
+	Texture2D backG = LoadTexture("res/Assets/fondo.jpg");
+	Texture2D playerLONG = LoadTexture("res/Assets/P1long.png");
+	Texture2D playerSHORT = LoadTexture("res/Assets/P1short.png");
 
-	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
-	Sound hitWav = LoadSound("Assets/hit.wav");
-	Sound pickupWav = LoadSound("Assets/pickup.wav");
+	Music music = LoadMusicStream("res/Assets/Hydrogen.ogg");
+	Sound hitWav = LoadSound("res/Assets/hit.wav");
+	Sound pickupWav = LoadSound("res/Assets/pickup.wav");
 
 	Vector2 ballPosition = { (float)screenWidth / 2, (float)screenHeight / 2 };
 	Vector2 pUpPosition1 = { (int)0,(int)0 };
@@ -208,7 +208,7 @@ int main(void)
 				colorBola = GREEN;
 				contadorFireball = 0;
 			}
-			if(enemigosRestantes == 0)
+			if(enemigosRestantes < 1)
 			{
 				enemigosRestantes = 30;
 				contadorNivel++;
@@ -240,7 +240,7 @@ int main(void)
 
 			if (ballPosition.x + radio > screenWidth || ballPosition.x - radio < 20)
 			{
-				directionx *= -1.1;
+				directionx *= -1;
 				if (!IsSoundPlaying(hitWav))
 				{
 					PlaySound(hitWav);
@@ -589,6 +589,7 @@ int main(void)
 
 			if (IsKeyPressed(KEY_ENTER))
 			{
+				initializeLevel(hitbox, contadorNivel);
 				UnloadTexture(title);
 				game = true;
 			}
