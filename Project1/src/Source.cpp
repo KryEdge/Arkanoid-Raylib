@@ -125,8 +125,7 @@ void initializeLevel(Rectangle level[], int nivel)
 }
 int main(void)
 {
-	// Initialization
-	//--------------------------------------------------------------------------------------
+
 	const int screenWidth = 800;
 	const int screenHeight = 450;
 
@@ -142,14 +141,16 @@ int main(void)
 	Color colorBola = GREEN;
 	bool game = false;
 	bool win = false;
-	int directionx = 4;
-	int directiony = 4;
+	int directionx = 5;
+	int directiony = 7;
 	const float incremento = 0.3;
 	int contadorP1 = 0;
-	int speed = 7;
+	int speed = 9;
 	int playerWidth = 100;
 	bool PLAYlong = false;
 	bool PLAYshort = false;
+	bool movIzq = false;
+	bool movDer = false;
 	float P1X = screenWidth / 2;
 	float P1Y = 400;
 	Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
@@ -180,14 +181,10 @@ int main(void)
 	int radio = 20;
 	int radiopUp = 20;
 
-	SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-	//--------------------------------------------------------------------------------------
+	SetTargetFPS(60);
 	initializeLevel(hitbox, contadorNivel);
-	// Main game loop
-	while (!WindowShouldClose()) // Detect window close button or ESC key
+	while (!WindowShouldClose())
 	{
-		// Update
-		//----------------------------------------------------------------------------------
 		UpdateMusicStream(music);
 		if (game)
 		{
@@ -198,7 +195,7 @@ int main(void)
 				ballPosition.x = Player1.x + playerWidth / 2;
 				ballPosition.y = Player1.y - 10;
 				playerLives--;
-				speed = 7;
+				speed = 9;
 				Player1.width = 100;
 				radio = 20;
 				PLAYlong = false;
@@ -224,6 +221,8 @@ int main(void)
 				{
 					Player1.x -= speed;
 				}
+				movIzq = true;
+				movDer = false;
 			}
 
 			if (IsKeyDown(KEY_D))
@@ -232,6 +231,8 @@ int main(void)
 				{
 					Player1.x += speed;
 				}
+				movIzq = false;
+				movDer = true;
 			}
 
 			ballPosition.x += directionx;
@@ -247,13 +248,19 @@ int main(void)
 			}
 			if (CheckCollisionCircleRec(ballPosition, radio, Player1))
 			{
-				switch (GetRandomValue(1, 2))
+				if (movIzq)
 				{
-				case 1:
-					directionx *= -1;
-					break;
-				case 2:
-					break;
+					if (directionx > 0)
+					{
+						directionx *= -1;
+					}
+				}
+				else if (movDer)
+				{
+					if (directionx < 0)
+					{
+						directionx *= -1;
+					}
 				}
 				if (!IsSoundPlaying(hitWav))
 				{
@@ -329,7 +336,7 @@ int main(void)
 			}
 			if (CheckCollisionCircles(ballPosition, radio, pUpPosition2, radiopUp))
 			{
-				speed = 10;
+				speed = 14;
 				pUpPosition2.x = 0;
 				pUpPosition2.y = 0;
 				numRand = 0;
@@ -360,10 +367,6 @@ int main(void)
 			{
 				game = false;
 			}
-			//----------------------------------------------------------------------------------
-
-			// Draw
-			//----------------------------------------------------------------------------------
 
 			BeginDrawing();
 			ClearBackground(BLACK);
@@ -636,15 +639,9 @@ int main(void)
 			}
 			EndDrawing();
 		}
-		//----------------------------------------------------------------------------------
 	}
-	// De-Initialization
-	//--------------------------------------------------------------------------------------
-
 	CloseAudioDevice();
 
-	CloseWindow();        // Close window and OpenGL context
-	//--------------------------------------------------------------------------------------
-
+	CloseWindow();
 	return 0;
 }
