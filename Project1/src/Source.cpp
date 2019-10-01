@@ -164,6 +164,7 @@ int main(void)
 	Texture2D backG = LoadTexture("res/Assets/fondo.jpg");
 	Texture2D playerLONG = LoadTexture("res/Assets/P1long.png");
 	Texture2D playerSHORT = LoadTexture("res/Assets/P1short.png");
+	Texture2D powUp = LoadTexture("res/Assets/PUP.png");
 
 	Music music = LoadMusicStream("res/Assets/Hydrogen.ogg");
 	Sound hitWav = LoadSound("res/Assets/hit.wav");
@@ -566,6 +567,7 @@ int main(void)
 			ClearBackground(DARKGRAY);
 
 			DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
+			DrawTexture(powUp, 0, 0, WHITE);
 
 			DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
 			DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
@@ -579,6 +581,7 @@ int main(void)
 					color1--;
 				}
 			}
+
 			if (IsKeyPressed(KEY_D))
 			{
 				if (color1 < 3)
@@ -591,6 +594,7 @@ int main(void)
 			{
 				initializeLevel(hitbox, contadorNivel);
 				UnloadTexture(title);
+				UnloadTexture(powUp);
 				game = true;
 			}
 			switch (color1)
@@ -610,7 +614,6 @@ int main(void)
 			default:
 				break;
 			}
-
 		}
 		if (!game && contadorNivel == 5 && playerLives > 0)
 		{
@@ -623,21 +626,26 @@ int main(void)
 
 			EndDrawing();
 		}
+
 		if (!game && playerLives <= 0)
 		{
 			StopMusicStream(music);
 			BeginDrawing();
 			ClearBackground(BLACK);
-			DrawText("YOU DIED", 200, screenHeight / 2, 50, RED);
-			DrawText(FormatText(" %i", contadorP1), 340, 300, 50, WHITE);
-			DrawText(FormatText("Puntaje:"), 200, 300, 30, WHITE);
+			DrawText("YOU DIED", 250, 100, 50, RED);
+			DrawText(FormatText("Puntaje:"), 300, 200, 30, WHITE);
+			DrawText(FormatText(" %i", contadorP1), 300, 250, 50, WHITE);
+			DrawText("Press Enter", 230, 350, 50, RED);
+
 			if (IsKeyPressed(KEY_ENTER))
 			{
 				playerLives = 3;
 				contadorNivel = 1;
 				enemigosRestantes = 30;
-				LoadTexture("Assets/Title.png");
+				title = LoadTexture("res/Assets/Title.png");
+				powUp = LoadTexture("res/Assets/PUP.png");
 			}
+
 			EndDrawing();
 		}
 	}
