@@ -1,5 +1,52 @@
 #include "raylib.h"
 
+int transformVolume(float volume)
+{
+	if (volume == 0.0f)
+	{
+		return 0;
+	}
+	else if (volume == 0.1f)
+	{
+		return 10;
+	}
+	else if (volume == 0.2f)
+	{
+		return 20;
+	}
+	else if (volume == 0.3f)
+	{
+		return 30;
+	}
+	else if (volume == 0.4f)
+	{
+		return 40;
+	}
+	else if (volume == 0.5f)
+	{
+		return 50;
+	}
+	else if (volume == 0.6f)
+	{
+		return 60;
+	}
+	else if (volume == 0.7f)
+	{
+		return 70;
+	}
+	else if (volume == 0.8f)
+	{
+		return 80;
+	}
+	else if (volume == 0.9f)
+	{
+		return 90;
+	}
+	else if (volume == 1.0f)
+	{
+		return 100;
+	}
+}
 void initializeLevel(Rectangle level[], int nivel)
 {
 	switch (nivel)
@@ -147,6 +194,7 @@ int main(void)
 	int contadorP1 = 0;
 	int speed = 9;
 	int playerWidth = 100;
+	float volume = 1.0f;
 	bool PLAYlong = false;
 	bool PLAYshort = false;
 	bool movIzq = false;
@@ -190,6 +238,23 @@ int main(void)
 		if (game)
 		{
 			PlayMusicStream(music);
+			SetMusicVolume(music, volume);
+			SetSoundVolume(hitWav, 0.5f);
+			SetSoundVolume(pickupWav, 0.5f);
+			if (IsKeyPressed(KEY_KP_ADD))
+			{
+				if (volume < 1.0f)
+				{
+					volume += 0.1f;
+				}
+			}                                       //AGREGAR EL VOLUMEN EN LA UI
+			else if (IsKeyPressed(KEY_KP_SUBTRACT))
+			{
+				if (volume > 0.0f)
+				{
+					volume -= 0.1f;
+				}
+			}
 
 			if (ballPosition.y > screenHeight)
 			{
@@ -239,9 +304,10 @@ int main(void)
 			ballPosition.x += directionx;
 			ballPosition.y += directiony;
 
-			if (ballPosition.x + radio > screenWidth || ballPosition.x - radio < 20)
+			if (ballPosition.x + radio > screenWidth || ballPosition.x - radio < 0)
 			{
 				directionx *= -1;
+				ballPosition.x += directionx/3;
 				if (!IsSoundPlaying(hitWav))
 				{
 					PlaySound(hitWav);
@@ -271,7 +337,7 @@ int main(void)
 			if (ballPosition.y - radio < 20 || CheckCollisionCircleRec(ballPosition, radio, Player1))
 			{
 
-				directiony *= -1.1;
+				directiony *= -1;
 
 				if (!IsSoundPlaying(hitWav))
 				{
@@ -395,10 +461,11 @@ int main(void)
 				default:
 					break;
 				}
-			}
-			DrawText(FormatText(" %i", contadorP1), screenWidth-60, 5, 15, WHITE);
-			DrawText("SCORE: ", screenWidth-110, 5, 15, WHITE);
 
+				DrawText(FormatText("Volumen: ", transformVolume(volume)), screenWidth / 2, 5, 15, WHITE);
+				DrawText(FormatText(" %i", contadorP1), screenWidth - 60, 5, 15, WHITE);
+				DrawText("SCORE: ", screenWidth - 110, 5, 15, WHITE);
+			}
 
 			for (int i = 0; i < maxEnemies; i++)//DIBUJO NIVEL
 			{
