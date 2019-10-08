@@ -173,6 +173,11 @@ int main(void)
 	Texture2D powUp = LoadTexture("Assets/PUP.png");
 	Texture2D ball = LoadTexture("Assets/ball.png");
 	Texture2D fireB = LoadTexture("Assets/fireball.png");
+	Texture2D longPUp = LoadTexture("Assets/long.png");
+	Texture2D firePUp = LoadTexture("Assets/fire.png");
+	Texture2D speedPUp = LoadTexture("Assets/speed.png");
+	Texture2D lifePUp = LoadTexture("Assets/life.png");
+
 
 	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
 	Sound hitWav = LoadSound("Assets/hit.wav");
@@ -518,7 +523,7 @@ int main(void)
 					{
 						pUpX = GetRandomValue(30, screenWidth - 40);
 						pUpY = GetRandomValue(130, screenHeight - 40);
-						pUpRand = GetRandomValue(1, 4);
+						pUpRand = GetRandomValue(3, 3);
 					}
 					switch (pUpRand)
 					{
@@ -526,21 +531,26 @@ int main(void)
 						pUpPosition1.x = pUpX;
 						pUpPosition1.y = pUpY;
 						DrawCircleV(pUpPosition1, radiopUp, PINK);
+						DrawTexture(longPUp, pUpPosition1.x-radiopUp, pUpPosition1.y-radiopUp, WHITE);
 						break;
 					case 2:
 						pUpPosition2.x = pUpX;
 						pUpPosition2.y = pUpY;
 						DrawCircleV(pUpPosition2, radiopUp, GOLD);
+						DrawTexture(speedPUp, pUpPosition2.x - radiopUp, pUpPosition2.y - radiopUp, WHITE);
 						break;
 					case 3:
 						pUpPosition3.x = pUpX;
 						pUpPosition3.y = pUpY;
 						DrawCircleV(pUpPosition3, radiopUp, VIOLET);
+						DrawTexture(lifePUp, pUpPosition3.x - radiopUp, pUpPosition3.y - radiopUp, WHITE);
+
 						break;
 					case 4:
 						pUpPosition4.x = pUpX;
 						pUpPosition4.y = pUpY;
 						DrawCircleV(pUpPosition4, radiopUp, RED);
+						DrawTexture(firePUp, pUpPosition4.x - radiopUp, pUpPosition4.y - radiopUp, WHITE);
 						break;
 					default:
 						break;
@@ -692,5 +702,5 @@ int main(void)
 	CloseWindow();
 	return 0;
 
-	//Agregar pantalla entre niveles, cambiar la pelota, pantalla de instrucciones
+	//Agregar pantalla entre niveles, pantalla de instrucciones, musica, creditos.
 }
