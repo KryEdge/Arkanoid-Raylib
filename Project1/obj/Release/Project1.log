@@ -1,50 +1,50 @@
 ﻿  Source.cpp
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(5): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(273): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(294): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(303): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(310): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(333): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(348): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(361): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(375): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(434): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(441): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(444): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(447): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(458): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(465): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(468): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(471): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(481): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(489): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(492): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(495): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(519): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(274): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(295): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(304): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(311): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(334): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(349): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(362): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(376): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(435): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(442): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(445): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(448): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(459): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(466): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(469): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(472): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(482): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(490): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(493): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(496): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(520): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(521): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(524): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(521): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(522): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(525): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(526): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(529): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(526): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(527): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(530): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(531): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(534): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(531): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(532): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(535): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(536): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(552): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(556): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(560): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(564): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(536): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(537): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(553): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(557): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(561): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(565): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(573): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(577): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(581): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(584): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(583): warning C4244: 'función': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(150): warning C4305: 'inicializando': truncamiento de 'double' a 'const float'
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(159): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\administrador\desktop\arkanoid-raylib\project1\src\source.cpp(161): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código
-  0 of 3 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  1 of 3 functions (33.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada

@@ -165,6 +165,7 @@ int main(void)
 	InitAudioDevice();
 
 	Texture2D title = LoadTexture("res/Assets/Title.png");
+	Texture2D inst = LoadTexture("res/Assets/Inst.png");
 	Texture2D player = LoadTexture("res/Assets/P1.png");
 	Texture2D backG = LoadTexture("res/Assets/fondo.jpg");
 	Texture2D playerLONG = LoadTexture("res/Assets/P1long.png");
@@ -202,14 +203,14 @@ int main(void)
 			{
 				if (volume < 1.0f)
 				{
-					volume += 0.1f;
+					volume += 0.10f;
 				}
 			}
 			else if (IsKeyPressed(KEY_KP_SUBTRACT))
 			{
 				if (volume > 0.0f)
 				{
-					volume -= 0.1f;
+					volume -= 0.10f;
 				}
 			}
 
@@ -420,8 +421,8 @@ int main(void)
 				}
 
 				DrawText(FormatText("Volumen: %i", transformVolume(volume)), screenWidth / 2, 5, 15, WHITE);
-				DrawText(FormatText(" %i", contadorP1), screenWidth - 60, 5, 15, WHITE);
 				DrawText("SCORE: ", screenWidth - 110, 5, 15, WHITE);
+				DrawText(FormatText(" %i", contadorP1), screenWidth - 60, 5, 15, WHITE);
 			}
 
 			for (int i = 0; i < maxEnemies; i++)//DIBUJO NIVEL
@@ -483,6 +484,7 @@ int main(void)
 					hitbox[i].width = 70;
 					hitbox[i].height = 20;
 					DrawRectangleRec(hitbox[i], YELLOW);
+
 					switch (hitbox[i].lives)
 					{
 					case 1:
@@ -567,7 +569,6 @@ int main(void)
 				break;
 			}
 
-
 			if (!PLAYlong && !PLAYshort)
 			{
 				DrawTexture(player, Player1.x, Player1.y - 35, WHITE);
@@ -580,9 +581,7 @@ int main(void)
 			{
 				DrawTexture(playerSHORT, Player1.x, Player1.y - 35, WHITE);
 			}
-
 			DrawCircleV(ballPosition, radio, colorBola);
-
 			EndDrawing();
 		}
 		else if (!game && contadorNivel == 1 && enemigosRestantes == 30)
@@ -591,8 +590,10 @@ int main(void)
 			ClearBackground(DARKGRAY);
 
 			DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
+			DrawTexture(inst, screenWidth - 230, 0, WHITE);
 			DrawTexture(powUp, 0, 0, WHITE);
 
+			DrawText("Puede subir y bajar el volumen con las teclas + y -", 160, 370, 20, WHITE);
 			DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
 			DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
 			DrawText("A             D", 270, 300, 40, WHITE);
