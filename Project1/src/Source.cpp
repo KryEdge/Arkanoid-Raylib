@@ -149,7 +149,7 @@ int main(void)
 	int directiony = 420;
 	const float incremento = 0.3;
 	int contadorP1 = 0;
-	float speed = 450.0f;
+	float speed = 500.0f;
 	int playerWidth = 100;
 	float volume = 1.0f;
 	bool PLAYlong = false;
@@ -164,17 +164,17 @@ int main(void)
 	InitWindow(screenWidth, screenHeight, "Bad Arkanoid");
 	InitAudioDevice();
 
-	Texture2D title = LoadTexture("res/Assets/Title.png");
-	Texture2D inst = LoadTexture("res/Assets/Inst.png");
-	Texture2D player = LoadTexture("res/Assets/P1.png");
-	Texture2D backG = LoadTexture("res/Assets/fondo.jpg");
-	Texture2D playerLONG = LoadTexture("res/Assets/P1long.png");
-	Texture2D playerSHORT = LoadTexture("res/Assets/P1short.png");
-	Texture2D powUp = LoadTexture("res/Assets/PUP.png");
+	Texture2D title = LoadTexture("Assets/Title.png");
+	Texture2D inst = LoadTexture("Assets/Inst.png");
+	Texture2D player = LoadTexture("Assets/P1.png");
+	Texture2D backG = LoadTexture("Assets/fondo.jpg");
+	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
+	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
+	Texture2D powUp = LoadTexture("Assets/PUP.png");
 
-	Music music = LoadMusicStream("res/Assets/Hydrogen.ogg");
-	Sound hitWav = LoadSound("res/Assets/hit.wav");
-	Sound pickupWav = LoadSound("res/Assets/pickup.wav");
+	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
+	Sound hitWav = LoadSound("Assets/hit.wav");
+	Sound pickupWav = LoadSound("Assets/pickup.wav");
 
 	Vector2 ballPosition = { (float)screenWidth / 2, (float)screenHeight / 2 };
 	Vector2 pUpPosition1 = { (int)0,(int)0 };
@@ -197,8 +197,8 @@ int main(void)
 		{
 			PlayMusicStream(music);
 			SetMusicVolume(music, volume);
-			SetSoundVolume(hitWav, 0.5f);
-			SetSoundVolume(pickupWav, 0.5f);
+			SetSoundVolume(hitWav, volume);
+			SetSoundVolume(pickupWav, volume);
 			if (IsKeyPressed(KEY_KP_ADD))
 			{
 				if (volume < 1.0f)
@@ -348,7 +348,10 @@ int main(void)
 			}
 			if (CheckCollisionCircles(ballPosition, radio, pUpPosition3, radiopUp))
 			{
-				radio = 40;
+				if(playerLives < 3)
+				{
+					playerLives++;
+				}
 				pUpPosition3.x = 0;
 				pUpPosition3.y = 0;
 				numRand = 0;
@@ -667,8 +670,8 @@ int main(void)
 				playerLives = 3;
 				contadorNivel = 1;
 				enemigosRestantes = 30;
-				title = LoadTexture("res/Assets/Title.png");
-				powUp = LoadTexture("res/Assets/PUP.png");
+				title = LoadTexture("Assets/Title.png");
+				powUp = LoadTexture("Assets/PUP.png");
 			}
 
 			EndDrawing();
@@ -678,4 +681,6 @@ int main(void)
 
 	CloseWindow();
 	return 0;
+
+	//Agregar pantalla entre niveles, cambiar la pelota, pantalla de instrucciones, 
 }

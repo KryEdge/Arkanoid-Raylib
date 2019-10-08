@@ -123,8 +123,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>Xcopy $(SolutionDir)res\Assets $(OutDir)Assets /y
-Xcopy $(SolutionDir)libs\raylib\bin\raylib.dll $(OutDir) /y</Command>
+      <Command>Xcopy $(SolutionDir)Assets $(OutDir)Assets /y /s 
+Xcopy $(SolutionDir)libs\raylib\bin\raylib.dll $(OutDir) /y /s</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
