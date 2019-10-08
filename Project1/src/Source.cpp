@@ -171,6 +171,8 @@ int main(void)
 	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
 	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
 	Texture2D powUp = LoadTexture("Assets/PUP.png");
+	Texture2D ball = LoadTexture("Assets/ball.png");
+	Texture2D fireB = LoadTexture("Assets/fireball.png");
 
 	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
 	Sound hitWav = LoadSound("Assets/hit.wav");
@@ -585,6 +587,14 @@ int main(void)
 				DrawTexture(playerSHORT, Player1.x, Player1.y - 35, WHITE);
 			}
 			DrawCircleV(ballPosition, radio, colorBola);
+			if (!fireball)
+			{
+				DrawTexture(ball, ballPosition.x - radio, ballPosition.y - radio, WHITE);
+			}
+			else if (fireball)
+			{
+				DrawTexture(fireB, ballPosition.x - radio, ballPosition.y - radio, WHITE);
+			}
 			EndDrawing();
 		}
 		else if (!game && contadorNivel == 1 && enemigosRestantes == 30)
@@ -645,7 +655,7 @@ int main(void)
 		}
 		if (!game && contadorNivel == 5 && playerLives > 0)
 		{
-			StopMusicStream(music);
+			StopMusicStream(music); 
 			BeginDrawing();
 			ClearBackground(BLACK);
 			DrawText("Felicidades!", 200, screenHeight / 4, 50, WHITE);			
@@ -682,5 +692,5 @@ int main(void)
 	CloseWindow();
 	return 0;
 
-	//Agregar pantalla entre niveles, cambiar la pelota, pantalla de instrucciones, 
+	//Agregar pantalla entre niveles, cambiar la pelota, pantalla de instrucciones
 }
