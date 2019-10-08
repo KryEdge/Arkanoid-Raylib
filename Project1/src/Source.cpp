@@ -523,7 +523,7 @@ int main(void)
 					{
 						pUpX = GetRandomValue(30, screenWidth - 40);
 						pUpY = GetRandomValue(130, screenHeight - 40);
-						pUpRand = GetRandomValue(3, 3);
+						pUpRand = GetRandomValue(1, 4);
 					}
 					switch (pUpRand)
 					{
