@@ -129,9 +129,10 @@ void initializeLevel(Rectangle level[], int nivel)
 }
 int main(void)
 {
-
 	const int screenWidth = 800;
 	const int screenHeight = 450;
+	InitWindow(screenWidth, screenHeight, "Bad Arkanoid");
+	InitAudioDevice();
 
 	const int maxEnemies = 30;
 	int enemigosRestantes = 30;
@@ -161,16 +162,13 @@ int main(void)
 	Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
 	int contadorNivel = 1;
 
-	InitWindow(screenWidth, screenHeight, "Bad Arkanoid");
-	InitAudioDevice();
-
 	Texture2D title = LoadTexture("Assets/Title.png");
 	Texture2D inst = LoadTexture("Assets/Inst.png");
 	Texture2D player = LoadTexture("Assets/P1.png");
 	Texture2D backG = LoadTexture("Assets/fondo.jpg");
 	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
 	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
-	Texture2D powUp = LoadTexture("Assets/PUP.png");
+	Texture2D credits = LoadTexture("Assets/Creditos.png");
 	Texture2D ball = LoadTexture("Assets/ball.png");
 	Texture2D fireB = LoadTexture("Assets/fireball.png");
 	Texture2D longPUp = LoadTexture("Assets/long.png");
@@ -197,6 +195,7 @@ int main(void)
 
 	SetTargetFPS(60);
 	initializeLevel(hitbox, contadorNivel);
+
 	while (!WindowShouldClose())
 	{
 		UpdateMusicStream(music);
@@ -402,13 +401,13 @@ int main(void)
 			{
 				game = false;
 			}
-
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////// DIBUJO
 			BeginDrawing();
 			ClearBackground(BLACK);
 			int posxactual = 10;
 			DrawTexture(backG, 0, 0, WHITE);
 
-			DrawRectangle(0, 0, screenWidth, 20, BLACK);//DIBUJO "UI"
+			DrawRectangle(0, 0, screenWidth, 20, BLACK);					//DIBUJO "UI"
 			if(playerLives > 0)
 			{
 				DrawText("LIVES: ", 5, 5, 15, WHITE);
@@ -435,7 +434,7 @@ int main(void)
 				DrawText(FormatText(" %i", contadorP1), screenWidth - 60, 5, 15, WHITE);
 			}
 
-			for (int i = 0; i < maxEnemies; i++)//DIBUJO NIVEL
+			for (int i = 0; i < maxEnemies; i++)							//DIBUJO NIVEL
 			{
 				if (i == 10) posxactual = 10;
 				if (i == 20) posxactual = 10;
@@ -515,14 +514,14 @@ int main(void)
 				posxactual += 80;
 			}
 
-			if (numberPUP < 1)//DIBUJO POWERUPS
+			if (numberPUP < 1)												//DIBUJO POWERUPS
 			{
 				if (numRand == 200)
 				{
 					if (pUpRand == 0)
 					{
-						pUpX = GetRandomValue(30, screenWidth - 40);
-						pUpY = GetRandomValue(130, screenHeight - 40);
+						pUpX = GetRandomValue(30, screenWidth - 30);
+						pUpY = GetRandomValue(130, screenHeight - 80);
 						pUpRand = GetRandomValue(1, 4);
 					}
 					switch (pUpRand)
@@ -562,7 +561,7 @@ int main(void)
 				}
 			}
 
-			switch (color1)
+			switch (color1)																//DIBUJO PLAYER
 			{
 			case 0:
 				DrawRectangleRec(Player1, MAROON);
@@ -607,20 +606,48 @@ int main(void)
 			}
 			EndDrawing();
 		}
-		else if (!game && contadorNivel == 1 && enemigosRestantes == 30)
+		else if (!game && contadorNivel == 1 && enemigosRestantes == 30)					//DIBUJO MENU
 		{
 			BeginDrawing();
 			ClearBackground(DARKGRAY);
 
-			DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
-			DrawTexture(inst, screenWidth - 230, 0, WHITE);
-			DrawTexture(powUp, 0, 0, WHITE);
+			if(IsKeyUp(KEY_C) && IsKeyUp(KEY_X))
+			{
+				DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
+				DrawText("C - Creditos", 10, 10, 30, WHITE);
+				DrawText("X - Instrucciones", 10, 50, 30, WHITE);
+				DrawText("Puede subir y bajar el volumen con las teclas + y -", 160, 370, 20, WHITE);
+				DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
+				DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
+				DrawText("A             D", 270, 300, 40, WHITE);
 
-			DrawText("Puede subir y bajar el volumen con las teclas + y -", 160, 370, 20, WHITE);
-			DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
-			DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
-			DrawText("A             D", 270, 300, 40, WHITE);
-			EndDrawing();
+				switch (color1)
+				{
+				case 0:
+					DrawRectangle(300, 300, 200, 40, MAROON);
+					break;
+				case 1:
+					DrawRectangle(300, 300, 200, 40, BLUE);
+					break;
+				case 2:
+					DrawRectangle(300, 300, 200, 40, DARKGREEN);
+					break;
+				case 3:
+					DrawRectangle(300, 300, 200, 40, DARKPURPLE);
+					break;
+				default:
+					break;
+				}
+			}
+
+			if (IsKeyDown(KEY_C))
+			{
+				DrawTexture(credits, 0, 0, WHITE);
+			}
+			if (IsKeyDown(KEY_X))
+			{
+				DrawTexture(inst, 0, 0, WHITE);
+			}
 
 			if (IsKeyPressed(KEY_A))
 			{
@@ -642,26 +669,13 @@ int main(void)
 			{
 				initializeLevel(hitbox, contadorNivel);
 				UnloadTexture(title);
-				UnloadTexture(powUp);
+				UnloadTexture(credits);
 				game = true;
 			}
-			switch (color1)
-			{
-			case 0:
-				DrawRectangle(300, 300, 200, 40, MAROON);
-				break;
-			case 1:
-				DrawRectangle(300, 300, 200, 40, BLUE);
-				break;
-			case 2:
-				DrawRectangle(300, 300, 200, 40, DARKGREEN);
-				break;
-			case 3:
-				DrawRectangle(300, 300, 200, 40, DARKPURPLE);
-				break;
-			default:
-				break;
-			}
+		
+
+			EndDrawing();
+
 		}
 		if (!game && contadorNivel == 5 && playerLives > 0)
 		{
@@ -691,7 +705,7 @@ int main(void)
 				contadorNivel = 1;
 				enemigosRestantes = 30;
 				title = LoadTexture("Assets/Title.png");
-				powUp = LoadTexture("Assets/PUP.png");
+				credits = LoadTexture("Assets/PUP.png");
 			}
 
 			EndDrawing();
@@ -702,5 +716,5 @@ int main(void)
 	CloseWindow();
 	return 0;
 
-	//Agregar pantalla entre niveles, pantalla de instrucciones, musica, creditos.
+	//Agregar pantalla entre niveles
 }
