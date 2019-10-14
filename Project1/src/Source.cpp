@@ -220,6 +220,14 @@ int main(void)
 				}
 			}
 
+			if (IsKeyPressed(KEY_P) && game)
+			{
+				game = false;
+				title = LoadTexture("Assets/Title.png");
+				inst = LoadTexture("Assets/Inst.png");
+				credits = LoadTexture("Assets/Creditos.png");
+			}
+
 			if (ballPosition.y > screenHeight)
 			{
 				ballPosition.x = Player1.x + playerWidth / 2;
@@ -606,7 +614,7 @@ int main(void)
 			}
 			EndDrawing();
 		}
-		else if (!game && contadorNivel == 1 && enemigosRestantes == 30)					//DIBUJO MENU
+		else if (!game && contadorNivel == 1)											//DIBUJO MENU
 		{
 			BeginDrawing();
 			ClearBackground(DARKGRAY);
@@ -616,6 +624,7 @@ int main(void)
 				DrawTexture(title, screenWidth / 2 - 80, 0, WHITE);
 				DrawText("C - Creditos", 10, 10, 30, WHITE);
 				DrawText("X - Instrucciones", 10, 50, 30, WHITE);
+				DrawText("P - Pausa (In Game)", 10, 90, 30, WHITE);
 				DrawText("Puede subir y bajar el volumen con las teclas + y -", 160, 370, 20, WHITE);
 				DrawText("Elija su color", 210, screenHeight / 2, 60, WHITE);
 				DrawText("Presione Enter para jugar", 210, 400, 30, WHITE);
@@ -667,9 +676,13 @@ int main(void)
 
 			if (IsKeyPressed(KEY_ENTER))
 			{
-				initializeLevel(hitbox, contadorNivel);
+				if (enemigosRestantes == 30)
+				{
+					initializeLevel(hitbox, contadorNivel);
+				}
 				UnloadTexture(title);
 				UnloadTexture(credits);
+				UnloadTexture(inst);
 				game = true;
 			}
 		
@@ -716,5 +729,4 @@ int main(void)
 	CloseWindow();
 	return 0;
 
-	//Agregar pantalla entre niveles
 }
