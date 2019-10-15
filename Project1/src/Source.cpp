@@ -159,10 +159,10 @@ int main(void)
 	bool movDer = false;
 	float P1X = (float)(screenWidth / 2);
 	float P1Y = 400;
+	int contadorNivel = 1;
 #pragma warning(disable:4204)
 	Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
 #pragma warning(default:4204)
-	int contadorNivel = 1;
 
 	Texture2D title = LoadTexture("Assets/Title.png");
 	Texture2D inst = LoadTexture("Assets/Inst.png");
@@ -178,14 +178,10 @@ int main(void)
 	Texture2D speedPUp = LoadTexture("Assets/speed.png");
 	Texture2D lifePUp = LoadTexture("Assets/life.png");
 
-
 	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
 	Sound hitWav = LoadSound("Assets/hit.wav");
 	Sound pickupWav = LoadSound("Assets/pickup.wav");
 
-#pragma warning(disable:4204)
-	Vector2 ballPosition = { (float)screenWidth / 2, (float)screenHeight / 2 };
-#pragma warning(default:4204)
 	Vector2 pUpPosition1 = { (int)0,(int)0 };
 	Vector2 pUpPosition2 = { (int)0,(int)0 };
 	Vector2 pUpPosition3 = { (int)0,(int)0 };
@@ -196,6 +192,9 @@ int main(void)
 	float pUpX = (float)GetRandomValue(30, screenWidth - 30);
 	float radio = 20.0f;
 	float radiopUp = 20.0f;
+#pragma warning(disable:4204)
+	Vector2 ballPosition = { P1X + radio , P1Y - radio };
+#pragma warning(default:4204)
 
 	SetTargetFPS(60);
 	initializeLevel(hitbox, contadorNivel);
@@ -276,6 +275,7 @@ int main(void)
 				movIzq = false;
 				movDer = true;
 			}
+
 
 			ballPosition.x += directionx * GetFrameTime();
 			ballPosition.y += directiony * GetFrameTime();
