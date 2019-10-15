@@ -1,8 +1,10 @@
 #include "raylib.h"
 
+
 int transformVolume(float volume)
 {
-	return volume * 100;
+	int vol = (int)(volume * 100);
+	return vol;
 }
 void initializeLevel(Rectangle level[], int nivel)
 {
@@ -145,21 +147,21 @@ int main(void)
 	int pUpRand = 0;
 	Color colorBola = GREEN;
 	bool game = false;
-	bool win = false;
-	int directionx = 300;
-	int directiony = 420;
-	const float incremento = 0.3;
+	float directionx = 300.0f;
+	float directiony = 420.0f;
 	int contadorP1 = 0;
 	float speed = 500.0f;
-	int playerWidth = 100;
+	float playerWidth = 100.0f;
 	float volume = 1.0f;
 	bool PLAYlong = false;
 	bool PLAYshort = false;
 	bool movIzq = false;
 	bool movDer = false;
-	float P1X = screenWidth / 2;
+	float P1X = (float)(screenWidth / 2);
 	float P1Y = 400;
+#pragma warning(disable:4204)
 	Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
+#pragma warning(default:4204)
 	int contadorNivel = 1;
 
 	Texture2D title = LoadTexture("Assets/Title.png");
@@ -181,17 +183,19 @@ int main(void)
 	Sound hitWav = LoadSound("Assets/hit.wav");
 	Sound pickupWav = LoadSound("Assets/pickup.wav");
 
+#pragma warning(disable:4204)
 	Vector2 ballPosition = { (float)screenWidth / 2, (float)screenHeight / 2 };
+#pragma warning(default:4204)
 	Vector2 pUpPosition1 = { (int)0,(int)0 };
 	Vector2 pUpPosition2 = { (int)0,(int)0 };
 	Vector2 pUpPosition3 = { (int)0,(int)0 };
 	Vector2 pUpPosition4 = { (int)0,(int)0 };
 	bool fireball = false;
 	int contadorFireball = 0;
-	int pUpY;
-	int pUpX;
-	int radio = 20;
-	int radiopUp = 20;
+	float pUpY = (float)GetRandomValue(130, screenHeight - 80);
+	float pUpX = (float)GetRandomValue(30, screenWidth - 30);
+	float radio = 20.0f;
+	float radiopUp = 20.0f;
 
 	SetTargetFPS(60);
 	initializeLevel(hitbox, contadorNivel);
@@ -412,7 +416,7 @@ int main(void)
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////// DIBUJO
 			BeginDrawing();
 			ClearBackground(BLACK);
-			int posxactual = 10;
+			float posxactual = 10.0f;
 			DrawTexture(backG, 0, 0, WHITE);
 
 			DrawRectangle(0, 0, screenWidth, 20, BLACK);					//DIBUJO "UI"
@@ -456,13 +460,13 @@ int main(void)
 					switch (hitbox[i].lives)
 					{
 					case 1:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, YELLOW);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
 						break;
 					case 2:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, RED);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
 						break;
 					case 3:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, BLUE);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
 						break;
 					default:
 						break;
@@ -480,13 +484,13 @@ int main(void)
 					switch (hitbox[i].lives)
 					{
 					case 1:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, YELLOW);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
 						break;
 					case 2:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, RED);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
 						break;
 					case 3:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, BLUE);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
 						break;
 					default:
 						break;
@@ -505,13 +509,13 @@ int main(void)
 					switch (hitbox[i].lives)
 					{
 					case 1:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, YELLOW);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
 						break;
 					case 2:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, RED);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
 						break;
 					case 3:
-						DrawRectangle(posxactual, hitbox[i].y, 70, 20, BLUE);
+						DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
 						break;
 					default:
 						break;
@@ -528,8 +532,8 @@ int main(void)
 				{
 					if (pUpRand == 0)
 					{
-						pUpX = GetRandomValue(30, screenWidth - 30);
-						pUpY = GetRandomValue(130, screenHeight - 80);
+						pUpX = (float)GetRandomValue(30, screenWidth - 30);
+						pUpY = (float)GetRandomValue(130, screenHeight - 80);
 						pUpRand = GetRandomValue(1, 4);
 					}
 					switch (pUpRand)
@@ -538,26 +542,26 @@ int main(void)
 						pUpPosition1.x = pUpX;
 						pUpPosition1.y = pUpY;
 						DrawCircleV(pUpPosition1, radiopUp, PINK);
-						DrawTexture(longPUp, pUpPosition1.x-radiopUp, pUpPosition1.y-radiopUp, WHITE);
+						DrawTexture(longPUp, (int)(pUpPosition1.x-radiopUp), (int)(pUpPosition1.y-radiopUp), WHITE);
 						break;
 					case 2:
 						pUpPosition2.x = pUpX;
 						pUpPosition2.y = pUpY;
 						DrawCircleV(pUpPosition2, radiopUp, GOLD);
-						DrawTexture(speedPUp, pUpPosition2.x - radiopUp, pUpPosition2.y - radiopUp, WHITE);
+						DrawTexture(speedPUp, (int)(pUpPosition2.x - radiopUp), (int)(pUpPosition2.y - radiopUp), WHITE);
 						break;
 					case 3:
 						pUpPosition3.x = pUpX;
 						pUpPosition3.y = pUpY;
 						DrawCircleV(pUpPosition3, radiopUp, VIOLET);
-						DrawTexture(lifePUp, pUpPosition3.x - radiopUp, pUpPosition3.y - radiopUp, WHITE);
+						DrawTexture(lifePUp, (int)(pUpPosition3.x - radiopUp), (int)(pUpPosition3.y - radiopUp), WHITE);
 
 						break;
 					case 4:
 						pUpPosition4.x = pUpX;
 						pUpPosition4.y = pUpY;
 						DrawCircleV(pUpPosition4, radiopUp, RED);
-						DrawTexture(firePUp, pUpPosition4.x - radiopUp, pUpPosition4.y - radiopUp, WHITE);
+						DrawTexture(firePUp, (int)(pUpPosition4.x - radiopUp), (int)(pUpPosition4.y - radiopUp), WHITE);
 						break;
 					default:
 						break;
@@ -573,19 +577,19 @@ int main(void)
 			{
 			case 0:
 				DrawRectangleRec(Player1, MAROON);
-				DrawRectangle(Player1.x, Player1.y, Player1.width, 30, MAROON);
+				DrawRectangle((int)Player1.x, (int)Player1.y, (int)Player1.width, 30, MAROON);
 				break;
 			case 1:
 				DrawRectangleRec(Player1, BLUE);
-				DrawRectangle(Player1.x, Player1.y, Player1.width, 30, BLUE);
+				DrawRectangle((int)Player1.x, (int)Player1.y, (int)Player1.width, 30, BLUE);
 				break;
 			case 2:
 				DrawRectangleRec(Player1, DARKGREEN);
-				DrawRectangle(Player1.x, Player1.y, Player1.width, 30, DARKGREEN);
+				DrawRectangle((int)Player1.x, (int)Player1.y, (int)Player1.width, 30, DARKGREEN);
 				break;
 			case 3:
 				DrawRectangleRec(Player1, DARKPURPLE);
-				DrawRectangle(Player1.x, Player1.y, Player1.width, 30, DARKPURPLE);
+				DrawRectangle((int)Player1.x, (int)Player1.y, (int)Player1.width, 30, DARKPURPLE);
 				break;
 			default:
 				break;
@@ -593,24 +597,24 @@ int main(void)
 
 			if (!PLAYlong && !PLAYshort)
 			{
-				DrawTexture(player, Player1.x, Player1.y - 35, WHITE);
+				DrawTexture(player, (int)Player1.x, (int)Player1.y - 35, WHITE);
 			}
 			else if (PLAYlong)
 			{
-				DrawTexture(playerLONG, Player1.x, Player1.y - 35, WHITE);
+				DrawTexture(playerLONG, (int)Player1.x, (int)Player1.y - 35, WHITE);
 			}
 			else if (PLAYshort)
 			{
-				DrawTexture(playerSHORT, Player1.x, Player1.y - 35, WHITE);
+				DrawTexture(playerSHORT, (int)Player1.x, (int)Player1.y - 35, WHITE);
 			}
 			DrawCircleV(ballPosition, radio, colorBola);
 			if (!fireball)
 			{
-				DrawTexture(ball, ballPosition.x - radio, ballPosition.y - radio, WHITE);
+				DrawTexture(ball, (int)(ballPosition.x - radio), (int)(ballPosition.y - radio), WHITE);
 			}
 			else if (fireball)
 			{
-				DrawTexture(fireB, ballPosition.x - radio, ballPosition.y - radio, WHITE);
+				DrawTexture(fireB, (int)(ballPosition.x - radio), (int)(ballPosition.y - radio), WHITE);
 			}
 			EndDrawing();
 		}
