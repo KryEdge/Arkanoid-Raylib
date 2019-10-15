@@ -351,9 +351,12 @@ int main(void)
 			}
 			if (CheckCollisionCircles(ballPosition, radio, pUpPosition1, radiopUp))
 			{
-				Player1.width = 200;
-				PLAYlong = true;
-				Player1.x += 42;
+				if(!PLAYlong)
+				{
+					Player1.width = 200;
+					PLAYlong = true;
+					Player1.x += 42;
+				}
 				pUpPosition1.x = 0;
 				pUpPosition1.y = 0;
 				numRand = 0;
