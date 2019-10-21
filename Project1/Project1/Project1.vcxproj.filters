@@ -6,8 +6,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Source.cpp">
+    <ClCompile Include="draw.cpp">
       <Filter>Source Code</Filter>
     </ClCompile>
+    <ClCompile Include="gameplay.cpp">
+      <Filter>Source Code</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gameplay.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

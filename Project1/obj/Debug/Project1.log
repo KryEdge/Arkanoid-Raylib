@@ -1,2 +1,5 @@
-﻿  Source.cpp
-  Project1.vcxproj -> C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\bin\Debug\Arkanoid.exe
+﻿  draw.cpp
+  gameplay.cpp
+  main.cpp
+  Generando código...
+  Project1.vcxproj -> C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Debug\Arkanoid.exe
