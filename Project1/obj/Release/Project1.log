@@ -1,12 +1,16 @@
-﻿  Source.cpp
+﻿  draw.cpp
+  game.cpp
+  main.cpp
   Generando código
-  All 3 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 22 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-  Project1.vcxproj -> C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\bin\Release\Arkanoid.exe
-  ¿C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\bin\Release\Assets especifica un archivo
+  Project1.vcxproj -> C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Release\Arkanoid.exe
+  ¿C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Release\Assets especifica un archivo
   o un directorio como destino
   (F = archivo, D = directorio)? ¬
-  ¿C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\bin\Release\Assets especifica un archivo
+  ¿C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Release\Assets especifica un archivo
   o un directorio como destino
-  (F = archivo, D = directorio)? C:\Users\Administrador\Desktop\arkanoid-raylib\Project1\libs\raylib\bin\raylib.dll
+  (F = archivo, D = directorio)? C:\Users\kryed\Desktop\arkanoid-raylib\Project1\libs\raylib\bin\raylib.dll
   1 archivo(s) copiado(s)

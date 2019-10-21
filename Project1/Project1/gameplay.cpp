@@ -1,11 +1,73 @@
 #include "raylib.h"
 
-
 namespace Arkanoid
 {
-	int transformVolume(float volume)
+	extern const int screenWidth = 800;
+	extern const int screenHeight = 450;
+	extern const int maxEnemies = 30;
+
+	int enemigosRestantes = 30;
+	int playerLives = 3;
+	int numRand = 0;
+	int pUpRand = 0;
+	int contadorFireball = 0;
+	int contadorP1 = 0;
+	int contadorNivel = 1;
+	int nivelFinal = 5;
+	int margenPantalla = 20;
+
+	float directionx = 300.0f;
+	float directiony = 420.0f;
+	float radio = 20.0f;
+	float radiopUp = 20.0f;
+	float P1X = (float)(screenWidth / 2);
+	float P1Y = 400;
+	float speed = 500.0f;
+	float playerWidth = 100.0f;
+	float volume = 1.0f;
+
+	bool PLAYlong = false;
+	bool movIzq = false;
+	bool movDer = false;
+	bool fireball = false;
+	bool game = false;
+
+	Color colorBola = GREEN;
+
+#pragma warning(disable:4204)
+	Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
+#pragma warning(default:4204)
+	Rectangle hitbox[30];
+
+	Texture2D title = LoadTexture("Assets/Title.png");
+	Texture2D inst = LoadTexture("Assets/Inst.png");
+	Texture2D player = LoadTexture("Assets/P1.png");
+	Texture2D backG = LoadTexture("Assets/fondo.jpg");
+	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
+	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
+	Texture2D credits = LoadTexture("Assets/Creditos.png");
+	Texture2D ball = LoadTexture("Assets/ball.png");
+	Texture2D fireB = LoadTexture("Assets/fireball.png");
+	Texture2D longPUp = LoadTexture("Assets/long.png");
+	Texture2D firePUp = LoadTexture("Assets/fire.png");
+	Texture2D speedPUp = LoadTexture("Assets/speed.png");
+	Texture2D lifePUp = LoadTexture("Assets/life.png");
+
+	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
+	Sound hitWav = LoadSound("Assets/hit.wav");
+	Sound pickupWav = LoadSound("Assets/pickup.wav");
+
+	Vector2 pUpPosition1 = { (int)0,(int)0 };
+	Vector2 pUpPosition2 = { (int)0,(int)0 };
+	Vector2 pUpPosition3 = { (int)0,(int)0 };
+	Vector2 pUpPosition4 = { (int)0,(int)0 };
+#pragma warning(disable:4204)
+	Vector2 ballPosition = { P1X + radio , P1Y - radio };
+#pragma warning(default:4204)
+
+	int transformVolume(float volumen)
 	{
-		int vol = (int)(volume * 100);
+		int vol = (int)(volumen * 100);
 		return vol;
 	}
 	
@@ -136,71 +198,8 @@ namespace Arkanoid
 	void gameplay()
 	{
 		InitAudioDevice();
-		
-		const int screenWidth = 800;
-		const int screenHeight = 450;
-		const int maxEnemies = 30;
-		int enemigosRestantes = 30;
-		int playerLives = 3;
-		int numRand = 0;
-		int pUpRand = 0;
-		int contadorFireball = 0;
-		int contadorP1 = 0;
-		int contadorNivel = 1;
-
-
-		float directionx = 300.0f;
-		float directiony = 420.0f;
-
-		float radio = 20.0f;
-		float radiopUp = 20.0f;
-		float P1X = (float)(screenWidth / 2);
-		float P1Y = 400;
-		float speed = 500.0f;
-		float playerWidth = 100.0f;
-		float volume = 1.0f;
-		
-		bool PLAYlong = false;
-		bool movIzq = false;
-		bool movDer = false;
-		bool fireball = false;
-		bool game = false;
-
-		Color colorBola = GREEN;
-
-#pragma warning(disable:4204)
-		Rectangle Player1 = { P1X, P1Y, playerWidth,30 };
-#pragma warning(default:4204)
-		Rectangle hitbox[30];
-
-
-		Texture2D title = LoadTexture("Assets/Title.png");
-		Texture2D inst = LoadTexture("Assets/Inst.png");
-		Texture2D player = LoadTexture("Assets/P1.png");
-		Texture2D backG = LoadTexture("Assets/fondo.jpg");
-		Texture2D playerLONG = LoadTexture("Assets/P1long.png");
-		Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
-		Texture2D credits = LoadTexture("Assets/Creditos.png");
-		Texture2D ball = LoadTexture("Assets/ball.png");
-		Texture2D fireB = LoadTexture("Assets/fireball.png");
-		Texture2D longPUp = LoadTexture("Assets/long.png");
-		Texture2D firePUp = LoadTexture("Assets/fire.png");
-		Texture2D speedPUp = LoadTexture("Assets/speed.png");
-		Texture2D lifePUp = LoadTexture("Assets/life.png");
-
-		Music music = LoadMusicStream("Assets/Hydrogen.ogg");
-		Sound hitWav = LoadSound("Assets/hit.wav");
-		Sound pickupWav = LoadSound("Assets/pickup.wav");
-
-		Vector2 pUpPosition1 = { (int)0,(int)0 };
-		Vector2 pUpPosition2 = { (int)0,(int)0 };
-		Vector2 pUpPosition3 = { (int)0,(int)0 };
-		Vector2 pUpPosition4 = { (int)0,(int)0 };
-#pragma warning(disable:4204)
-		Vector2 ballPosition = { P1X + radio , P1Y - radio };
-#pragma warning(default:4204)
-
 		UpdateMusicStream(music);
+
 		if (game)
 		{
 			initializeLevel(hitbox, contadorNivel);
@@ -311,7 +310,7 @@ namespace Arkanoid
 					PlaySound(hitWav);
 				}
 			}
-			if (ballPosition.y - radio < 20 || CheckCollisionCircleRec(ballPosition, radio, Player1))
+			if (ballPosition.y - radio < margenPantalla || CheckCollisionCircleRec(ballPosition, radio, Player1))
 			{
 
 				directiony *= -1;
@@ -413,7 +412,7 @@ namespace Arkanoid
 				}
 			}
 
-			if ((contadorNivel == 5 && enemigosRestantes == 0) || playerLives <= 0)
+			if ((contadorNivel == nivelFinal && enemigosRestantes == 0) || playerLives <= 0)
 			{
 				game = false;
 			}

@@ -5,7 +5,7 @@ namespace Arkanoid
 {
 	void playGame()
 	{
-		void draw();
 		void gameplay();
+		void draw();
 	}
 }

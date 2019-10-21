@@ -1,15 +1,18 @@
 #pragma once
 #include "raylib.h"
 
+#ifndef GAMEPLAY_H
+#define GAMEPLAY_H
+
 namespace Arkanoid
 {
 extern int transformVolume(float volume);
 extern void initializeLevel(Rectangle level[], int nivel);
 extern void gameplay();
 
-extern const int screenWidth;
-extern const int screenHeight;
-extern const int maxEnemies;
+extern int const screenWidth;
+extern int const screenHeight;
+extern int const maxEnemies;
 extern int playerLives;
 extern int contadorP1;
 extern int enemigosRestantes;
@@ -55,5 +58,6 @@ extern Vector2 pUpPosition2;
 extern Vector2 pUpPosition3;
 extern Vector2 pUpPosition4;
 extern Vector2 ballPosition;
-
 }
+
+#endif GAMEPLAY_H
