@@ -1,5 +1,40 @@
-﻿  draw.cpp
-  gameplay.cpp
-  main.cpp
-  Generando código...
-  Project1.vcxproj -> C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Debug\Arkanoid.exe
+﻿draw.obj : error LNK2001: símbolo externo "int const Arkanoid::screenWidth" (?screenWidth@Arkanoid@@3HB) sin resolver
+main.obj : error LNK2001: símbolo externo "int const Arkanoid::screenWidth" (?screenWidth@Arkanoid@@3HB) sin resolver
+draw.obj : error LNK2001: símbolo externo "int const Arkanoid::screenHeight" (?screenHeight@Arkanoid@@3HB) sin resolver
+main.obj : error LNK2001: símbolo externo "int const Arkanoid::screenHeight" (?screenHeight@Arkanoid@@3HB) sin resolver
+draw.obj : error LNK2001: símbolo externo "int const Arkanoid::maxEnemies" (?maxEnemies@Arkanoid@@3HB) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::playerLives" (?playerLives@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::contadorP1" (?contadorP1@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::enemigosRestantes" (?enemigosRestantes@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::numRand" (?numRand@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::pUpRand" (?pUpRand@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "int Arkanoid::contadorNivel" (?contadorNivel@Arkanoid@@3HA) sin resolver
+draw.obj : error LNK2001: símbolo externo "float Arkanoid::volume" (?volume@Arkanoid@@3MA) sin resolver
+draw.obj : error LNK2001: símbolo externo "float Arkanoid::radio" (?radio@Arkanoid@@3MA) sin resolver
+draw.obj : error LNK2001: símbolo externo "float Arkanoid::radiopUp" (?radiopUp@Arkanoid@@3MA) sin resolver
+draw.obj : error LNK2001: símbolo externo "bool Arkanoid::PLAYlong" (?PLAYlong@Arkanoid@@3_NA) sin resolver
+draw.obj : error LNK2001: símbolo externo "bool Arkanoid::fireball" (?fireball@Arkanoid@@3_NA) sin resolver
+draw.obj : error LNK2001: símbolo externo "bool Arkanoid::game" (?game@Arkanoid@@3_NA) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Color Arkanoid::colorBola" (?colorBola@Arkanoid@@3UColor@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Rectangle Arkanoid::Player1" (?Player1@Arkanoid@@3URectangle@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Rectangle * Arkanoid::hitbox" (?hitbox@Arkanoid@@3PAURectangle@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::title" (?title@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::inst" (?inst@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::player" (?player@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::backG" (?backG@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::playerLONG" (?playerLONG@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::playerSHORT" (?playerSHORT@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::credits" (?credits@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::ball" (?ball@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::fireB" (?fireB@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::longPUp" (?longPUp@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::firePUp" (?firePUp@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::speedPUp" (?speedPUp@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Texture2D Arkanoid::lifePUp" (?lifePUp@Arkanoid@@3UTexture2D@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct MusicData * Arkanoid::music" (?music@Arkanoid@@3PAUMusicData@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Vector2 Arkanoid::pUpPosition1" (?pUpPosition1@Arkanoid@@3UVector2@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Vector2 Arkanoid::pUpPosition2" (?pUpPosition2@Arkanoid@@3UVector2@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Vector2 Arkanoid::pUpPosition3" (?pUpPosition3@Arkanoid@@3UVector2@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Vector2 Arkanoid::pUpPosition4" (?pUpPosition4@Arkanoid@@3UVector2@@A) sin resolver
+draw.obj : error LNK2001: símbolo externo "struct Vector2 Arkanoid::ballPosition" (?ballPosition@Arkanoid@@3UVector2@@A) sin resolver
+C:\Users\kryed\Desktop\arkanoid-raylib\Project1\bin\Debug\Arkanoid.exe : fatal error LNK1120: 37 externos sin resolver
