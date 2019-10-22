@@ -4,30 +4,36 @@
     <Filter Include="Source Code">
       <UniqueIdentifier>{95bf68c0-cb51-4b45-85e2-5d22fe51bef1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\cpp">
+      <UniqueIdentifier>{5bdd4ae1-f024-492b-abfe-43e66946a394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\headers">
+      <UniqueIdentifier>{2d08be05-3093-4dee-a0db-dd9f5ef533a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="draw.cpp">
-      <Filter>Source Code</Filter>
-    </ClCompile>
-    <ClCompile Include="gameplay.cpp">
-      <Filter>Source Code</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Code</Filter>
+      <Filter>Source Code\cpp</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
-      <Filter>Source Code</Filter>
+      <Filter>Source Code\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="gameplay.cpp">
+      <Filter>Source Code\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Code\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gameplay.h">
-      <Filter>Source Code</Filter>
-    </ClInclude>
     <ClInclude Include="draw.h">
-      <Filter>Source Code</Filter>
+      <Filter>Source Code\headers</Filter>
     </ClInclude>
     <ClInclude Include="game.h">
-      <Filter>Source Code</Filter>
+      <Filter>Source Code\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="gameplay.h">
+      <Filter>Source Code\headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
