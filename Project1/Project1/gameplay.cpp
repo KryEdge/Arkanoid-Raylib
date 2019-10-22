@@ -53,7 +53,7 @@ namespace Arkanoid
 	Texture2D speedPUp = LoadTexture("Assets/speed.png");
 	Texture2D lifePUp = LoadTexture("Assets/life.png");
 
-	Music music = LoadMusicStream("Assets/Hydrogen.ogg");
+	Music music = LoadMusicStream("Assets/Dirtygroove.ogg");
 	Sound hitWav = LoadSound("Assets/hit.wav");
 	Sound pickupWav = LoadSound("Assets/pickup.wav");
 
