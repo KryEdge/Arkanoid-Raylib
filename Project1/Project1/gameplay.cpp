@@ -39,19 +39,19 @@ namespace Arkanoid
 #pragma warning(default:4204)
 	Rectangle hitbox[30];
 
-	Texture2D title = LoadTexture("Assets/Title.png");
-	Texture2D inst = LoadTexture("Assets/Inst.png");
-	Texture2D player = LoadTexture("Assets/P1.png");
-	Texture2D backG = LoadTexture("Assets/fondo.jpg");
-	Texture2D playerLONG = LoadTexture("Assets/P1long.png");
-	Texture2D playerSHORT = LoadTexture("Assets/P1short.png");
-	Texture2D credits = LoadTexture("Assets/Creditos.png");
-	Texture2D ball = LoadTexture("Assets/ball.png");
-	Texture2D fireB = LoadTexture("Assets/fireball.png");
-	Texture2D longPUp = LoadTexture("Assets/long.png");
-	Texture2D firePUp = LoadTexture("Assets/fire.png");
-	Texture2D speedPUp = LoadTexture("Assets/speed.png");
-	Texture2D lifePUp = LoadTexture("Assets/life.png");
+	Texture2D title;
+	Texture2D inst;
+	Texture2D player;
+	Texture2D backG;
+	Texture2D playerLONG;
+	Texture2D playerSHORT;
+	Texture2D credits;
+	Texture2D ball;
+	Texture2D fireB;
+	Texture2D longPUp;
+	Texture2D firePUp;
+	Texture2D speedPUp;
+	Texture2D lifePUp;
 
 	Music music = LoadMusicStream("Assets/Dirtygroove.ogg");
 	Sound hitWav = LoadSound("Assets/hit.wav");
@@ -64,6 +64,23 @@ namespace Arkanoid
 #pragma warning(disable:4204)
 	Vector2 ballPosition = { P1X + radio , P1Y - radio };
 #pragma warning(default:4204)
+
+	void loadTextures()
+	{
+		title = LoadTexture("Assets/Title.png");
+		inst = LoadTexture("Assets/Inst.png");
+		player = LoadTexture("Assets/P1.png");
+		backG = LoadTexture("Assets/fondo.jpg");
+		playerLONG = LoadTexture("Assets/P1long.png");
+		playerSHORT = LoadTexture("Assets/P1short.png");
+		credits = LoadTexture("Assets/Creditos.png");
+		ball = LoadTexture("Assets/ball.png");
+		fireB = LoadTexture("Assets/fireball.png");
+		longPUp = LoadTexture("Assets/long.png");
+		firePUp = LoadTexture("Assets/fire.png");
+		speedPUp = LoadTexture("Assets/speed.png");
+		lifePUp = LoadTexture("Assets/life.png");
+	}
 
 	int transformVolume(float volumen)
 	{
@@ -197,6 +214,7 @@ namespace Arkanoid
 	
 	void gameplay()
 	{
+		loadTextures();
 		InitAudioDevice();
 		UpdateMusicStream(music);
 
