@@ -1,4 +1,3 @@
-#pragma once
 #include "raylib.h"
 
 #ifndef GAMEPLAY_H

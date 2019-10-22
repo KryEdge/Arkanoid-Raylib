@@ -1,4 +1,3 @@
-#pragma once
 #include"gameplay.h"
 
 #ifndef DRAW_H
