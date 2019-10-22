@@ -31,6 +31,7 @@ namespace Arkanoid
 	bool movDer = false;
 	bool fireball = false;
 	bool game = false;
+	bool boot = true;
 
 	Color colorBola = GREEN;
 
@@ -214,8 +215,12 @@ namespace Arkanoid
 	
 	void gameplay()
 	{
-		loadTextures();
-		InitAudioDevice();
+		if (boot)
+		{
+			loadTextures();
+			boot = false;
+		}
+			InitAudioDevice();
 		UpdateMusicStream(music);
 
 		if (game)
@@ -342,7 +347,7 @@ namespace Arkanoid
 					ballPosition.y -= radio / 2;
 				}
 			}
-			for (int i = 0; i < 30; i++)
+			for (int i = 0; i < maxEnemies; i++)
 			{
 				if (CheckCollisionCircleRec(ballPosition, radio, hitbox[i]))
 				{

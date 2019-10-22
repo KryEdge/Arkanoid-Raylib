@@ -202,6 +202,7 @@ namespace Arkanoid
 			DrawTexture(playerSHORT, (int)Player1.x, (int)Player1.y - 35, WHITE);
 		}
 		DrawCircleV(ballPosition, radio, colorBola);
+
 		if (!fireball)
 		{
 			DrawTexture(ball, (int)(ballPosition.x - radio), (int)(ballPosition.y - radio), WHITE);
@@ -275,7 +276,7 @@ namespace Arkanoid
 
 		if (IsKeyPressed(KEY_ENTER))
 		{
-			if (enemigosRestantes == 30)
+			if (enemigosRestantes == maxEnemies)
 			{
 				initializeLevel(hitbox, contadorNivel);
 			}
