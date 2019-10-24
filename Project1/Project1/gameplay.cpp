@@ -54,9 +54,9 @@ namespace Arkanoid
 	Texture2D speedPUp;
 	Texture2D lifePUp;
 
-	Music music = LoadMusicStream("Assets/Dirtygroove.ogg");
-	Sound hitWav = LoadSound("Assets/hit.wav");
-	Sound pickupWav = LoadSound("Assets/pickup.wav");
+	Music music;
+	Sound hitWav;
+	Sound pickupWav;
 
 	Vector2 pUpPosition1 = { (int)0,(int)0 };
 	Vector2 pUpPosition2 = { (int)0,(int)0 };
@@ -66,7 +66,7 @@ namespace Arkanoid
 	Vector2 ballPosition = { P1X + radio , P1Y - radio };
 #pragma warning(default:4204)
 
-	void loadTextures()
+	void loadFiles()
 	{
 		title = LoadTexture("Assets/Title.png");
 		inst = LoadTexture("Assets/Inst.png");
@@ -81,6 +81,9 @@ namespace Arkanoid
 		firePUp = LoadTexture("Assets/fire.png");
 		speedPUp = LoadTexture("Assets/speed.png");
 		lifePUp = LoadTexture("Assets/life.png");
+		Music music = LoadMusicStream("Assets/Dirtygroove.ogg");
+		Sound hitWav = LoadSound("Assets/hit.wav");
+		Sound pickupWav = LoadSound("Assets/pickup.wav");
 	}
 
 	int transformVolume(float volumen)
@@ -217,7 +220,7 @@ namespace Arkanoid
 	{
 		if (boot)
 		{
-			loadTextures();
+			loadFiles();
 			boot = false;
 		}
 			InitAudioDevice();
