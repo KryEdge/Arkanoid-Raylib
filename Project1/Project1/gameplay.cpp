@@ -81,9 +81,9 @@ namespace Arkanoid
 		firePUp = LoadTexture("Assets/fire.png");
 		speedPUp = LoadTexture("Assets/speed.png");
 		lifePUp = LoadTexture("Assets/life.png");
-		Music music = LoadMusicStream("Assets/Dirtygroove.ogg");
-		Sound hitWav = LoadSound("Assets/hit.wav");
-		Sound pickupWav = LoadSound("Assets/pickup.wav");
+		music = LoadMusicStream("Assets/Dirtygroove.ogg");
+		hitWav = LoadSound("Assets/hit.wav");
+		pickupWav = LoadSound("Assets/pickup.wav");
 	}
 
 	int transformVolume(float volumen)
@@ -223,7 +223,8 @@ namespace Arkanoid
 			loadFiles();
 			boot = false;
 		}
-			InitAudioDevice();
+
+		InitAudioDevice();
 		UpdateMusicStream(music);
 
 		if (game)
@@ -234,6 +235,7 @@ namespace Arkanoid
 			SetMusicVolume(music, volume);
 			SetSoundVolume(hitWav, volume);
 			SetSoundVolume(pickupWav, volume);
+
 			if (IsKeyPressed(KEY_KP_ADD))
 			{
 				if (volume < 1.0f)
