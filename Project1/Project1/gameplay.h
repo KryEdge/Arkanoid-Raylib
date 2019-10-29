@@ -50,8 +50,6 @@ extern Texture2D speedPUp;
 extern Texture2D lifePUp;
 extern Texture2D backG;
 
-extern Music music;
-
 extern Vector2 pUpPosition1;
 extern Vector2 pUpPosition2;
 extern Vector2 pUpPosition3;

@@ -24,7 +24,7 @@ namespace Arkanoid
 	float P1Y = 400;
 	float speed = 500.0f;
 	float playerWidth = 100.0f;
-	float volume = 1.0f;
+	float volume = 0.5f;
 
 	bool PLAYlong = false;
 	bool movIzq = false;
@@ -54,7 +54,7 @@ namespace Arkanoid
 	Texture2D speedPUp;
 	Texture2D lifePUp;
 
-	Music music;
+	Music soundtrack;
 	Sound hitWav;
 	Sound pickupWav;
 
@@ -81,9 +81,11 @@ namespace Arkanoid
 		firePUp = LoadTexture("Assets/fire.png");
 		speedPUp = LoadTexture("Assets/speed.png");
 		lifePUp = LoadTexture("Assets/life.png");
-		music = LoadMusicStream("Assets/Dirtygroove.ogg");
-		hitWav = LoadSound("Assets/hit.wav");
-		pickupWav = LoadSound("Assets/pickup.wav");
+
+
+		hitWav = LoadSound("Assets/Hit.ogg");
+		pickupWav = LoadSound("Assets/Pickup.ogg");
+		soundtrack = LoadMusicStream("Assets/Dirtygroove.ogg");
 	}
 
 	int transformVolume(float volumen)
@@ -109,7 +111,7 @@ namespace Arkanoid
 					level[i].maxLives = 2;
 					level[i].lives = 2;
 				}
-				if (i >= 20 && i < 30)
+				else if (i >= 20 && i < 30)
 				{
 					level[i].maxLives = 1;
 					level[i].lives = 1;
@@ -220,19 +222,17 @@ namespace Arkanoid
 	{
 		if (boot)
 		{
+			InitAudioDevice();
 			loadFiles();
 			boot = false;
+			initializeLevel(hitbox, contadorNivel);
 		}
-
-		InitAudioDevice();
-		UpdateMusicStream(music);
 
 		if (game)
 		{
-			initializeLevel(hitbox, contadorNivel);
-
-			PlayMusicStream(music);
-			SetMusicVolume(music, volume);
+			PlayMusicStream(soundtrack);
+			UpdateMusicStream(soundtrack);
+			SetMusicVolume(soundtrack, volume);
 			SetSoundVolume(hitWav, volume);
 			SetSoundVolume(pickupWav, volume);
 
@@ -253,6 +253,7 @@ namespace Arkanoid
 
 			if (IsKeyPressed(KEY_P) && game)
 			{
+				StopMusicStream(soundtrack);
 				game = false;
 				title = LoadTexture("Assets/Title.png");
 				inst = LoadTexture("Assets/Inst.png");
@@ -277,7 +278,7 @@ namespace Arkanoid
 				colorBola = GREEN;
 				contadorFireball = 0;
 			}
-			if (enemigosRestantes < 1)
+			if (enemigosRestantes <= 0)
 			{
 				enemigosRestantes = 30;
 				contadorNivel++;
@@ -442,6 +443,7 @@ namespace Arkanoid
 
 			if ((contadorNivel == nivelFinal && enemigosRestantes == 0) || playerLives <= 0)
 			{
+				StopMusicStream(soundtrack);
 				game = false;
 			}
 		}

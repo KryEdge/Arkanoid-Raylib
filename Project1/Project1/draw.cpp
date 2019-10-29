@@ -211,12 +211,12 @@ namespace Arkanoid
 		{
 			DrawTexture(fireB, (int)(ballPosition.x - radio), (int)(ballPosition.y - radio), WHITE);
 		}
-		EndDrawing();
+
 	}
 
 	void drawMenu()
 	{
-		BeginDrawing();
+
 		ClearBackground(DARKGRAY);
 
 		if (IsKeyUp(KEY_C) && IsKeyUp(KEY_X))
@@ -285,24 +285,21 @@ namespace Arkanoid
 			UnloadTexture(inst);
 			game = true;
 		}
-		EndDrawing();
+
 	}
 
 	void drawWinScreen()
 	{
-		StopMusicStream(music);
-		BeginDrawing();
+
 		ClearBackground(BLACK);
 		DrawText("Felicidades!", 200, screenHeight / 4, 50, WHITE);
 		DrawText(FormatText(" %i", contadorP1), 260, 300, 30, WHITE);
 		DrawText(FormatText("Puntaje:"), 100, 300, 30, WHITE);
 
-		EndDrawing();
 	}
 
 	void drawGameOver()
 	{
-		StopMusicStream(music);
 		BeginDrawing();
 		ClearBackground(BLACK);
 		DrawText("YOU DIED", 250, 100, 50, RED);
@@ -359,7 +356,7 @@ namespace Arkanoid
 		{
 			drawGameOver();
 		}
-
 		EndDrawing();
+
 	}
 }
