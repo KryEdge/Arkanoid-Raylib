@@ -13,7 +13,7 @@ extern int const screenWidth;
 extern int const screenHeight;
 extern int const maxEnemies;
 extern int playerLives;
-extern int contadorP1;
+extern int puntaje;
 extern int enemigosRestantes;
 extern int playerLives;
 extern int numRand;
@@ -28,6 +28,7 @@ extern float radiopUp;
 extern bool PLAYlong;
 extern bool fireball;
 extern bool game;
+extern bool pause;
 
 
 extern Color colorBola;

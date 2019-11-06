@@ -11,7 +11,7 @@ namespace Arkanoid
 	int numRand = 0;
 	int pUpRand = 0;
 	int contadorFireball = 0;
-	int contadorP1 = 0;
+	int puntaje = 0;
 	int contadorNivel = 1;
 	int nivelFinal = 5;
 	int margenPantalla = 20;
@@ -24,7 +24,7 @@ namespace Arkanoid
 	float P1Y = 400;
 	float speed = 500.0f;
 	float playerWidth = 100.0f;
-	float volume = 0.5f;
+	float volume = 0.4f;
 
 	bool PLAYlong = false;
 	bool movIzq = false;
@@ -32,6 +32,7 @@ namespace Arkanoid
 	bool fireball = false;
 	bool game = false;
 	bool boot = true;
+	bool pause = false;
 
 	Color colorBola = GREEN;
 
@@ -224,8 +225,9 @@ namespace Arkanoid
 		{
 			InitAudioDevice();
 			loadFiles();
-			boot = false;
 			initializeLevel(hitbox, contadorNivel);
+			boot = false;
+
 		}
 
 		if (game)
@@ -255,6 +257,7 @@ namespace Arkanoid
 			{
 				StopMusicStream(soundtrack);
 				game = false;
+				pause = true;
 				title = LoadTexture("Assets/Title.png");
 				inst = LoadTexture("Assets/Inst.png");
 				credits = LoadTexture("Assets/Creditos.png");
@@ -374,7 +377,7 @@ namespace Arkanoid
 						}
 						ballPosition.y += radio / 2;
 
-						contadorP1 += 42;
+						puntaje += 42;
 					}
 				}
 			}
@@ -390,7 +393,7 @@ namespace Arkanoid
 				pUpPosition1.y = 0;
 				numRand = 0;
 				pUpRand = 0;
-				contadorP1 += 25;
+				puntaje += 25;
 				if (!IsSoundPlaying(pickupWav))
 				{
 					PlaySound(pickupWav);
@@ -406,7 +409,7 @@ namespace Arkanoid
 				pUpPosition3.y = 0;
 				numRand = 0;
 				pUpRand = 0;
-				contadorP1 += 25;
+				puntaje += 25;
 				if (!IsSoundPlaying(pickupWav))
 				{
 					PlaySound(pickupWav);
@@ -419,7 +422,7 @@ namespace Arkanoid
 				pUpPosition2.y = 0;
 				numRand = 0;
 				pUpRand = 0;
-				contadorP1 += 25;
+				puntaje += 25;
 				if (!IsSoundPlaying(pickupWav))
 				{
 					PlaySound(pickupWav);
@@ -434,7 +437,7 @@ namespace Arkanoid
 				pUpPosition4.y = 0;
 				numRand = 0;
 				pUpRand = 0;
-				contadorP1 += 25;
+				puntaje += 25;
 				if (!IsSoundPlaying(pickupWav))
 				{
 					PlaySound(pickupWav);

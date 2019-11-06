@@ -35,87 +35,94 @@ namespace Arkanoid
 
 		DrawText(FormatText("Volumen: %i", transformVolume(volume)), screenWidth / 2, 5, 15, WHITE);
 		DrawText("SCORE: ", screenWidth - 110, 5, 15, WHITE);
-		DrawText(FormatText(" %i", contadorP1), screenWidth - 60, 5, 15, WHITE);
+		DrawText(FormatText(" %i", puntaje), screenWidth - 60, 5, 15, WHITE);
 	}
 
-	void drawLevel(int i)
+	void drawLevel()
 	{
-		if (i == 10) posxactual = 10;
-		if (i == 20) posxactual = 10;
-
-		if (i < 10)
+		for (int i = 0; i < maxEnemies; i++)
 		{
-			hitbox[i].x = posxactual;
-			hitbox[i].y = 30;
-			hitbox[i].width = 70;
-			hitbox[i].height = 20;
-			switch (hitbox[i].lives)
+			if (i == 10 || i == 20 || i == 0) posxactual = 10;
+		
+			if (i < 10)
 			{
-			case 1:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
-				break;
-			case 2:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
-				break;
-			case 3:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
-				break;
-			default:
-				break;
+				hitbox[i].x = posxactual;
+				hitbox[i].y = 30;
+				hitbox[i].width = 70;
+				hitbox[i].height = 20;
+				switch (hitbox[i].lives)
+				{
+				case 1:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
+					break;
+				case 2:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
+					break;
+				case 3:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
+					break;
+				default:
+					break;
+				}
+				DrawRectangleRec(hitbox[i], RED);
+
 			}
-			DrawRectangleRec(hitbox[i], RED);
 
-		}
-
-		if (i >= 10 && i < 20)
-		{
-			hitbox[i].x = posxactual;
-			hitbox[i].y = 70;
-			hitbox[i].width = 70;
-			hitbox[i].height = 20;
-			switch (hitbox[i].lives)
+			if (i >= 10 && i < 20)
 			{
-			case 1:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
-				break;
-			case 2:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
-				break;
-			case 3:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
-				break;
-			default:
-				break;
+				hitbox[i].x = posxactual;
+				hitbox[i].y = 70;
+				hitbox[i].width = 70;
+				hitbox[i].height = 20;
+				switch (hitbox[i].lives)
+				{
+				case 1:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
+					break;
+				case 2:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
+					break;
+				case 3:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
+					break;
+				default:
+					break;
+				}
+				DrawRectangleRec(hitbox[i], BLUE);
 			}
-			DrawRectangleRec(hitbox[i], BLUE);
-		}
 
-		if (i >= 20)
-		{
-			hitbox[i].x = posxactual;
-			hitbox[i].y = 110;
-			hitbox[i].width = 70;
-			hitbox[i].height = 20;
-			DrawRectangleRec(hitbox[i], YELLOW);
-
-			switch (hitbox[i].lives)
+			if (i >= 20)
 			{
-			case 1:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
-				break;
-			case 2:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
-				break;
-			case 3:
-				DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
-				break;
-			default:
-				break;
-			}
-			DrawRectangleRec(hitbox[i], YELLOW);
-		}
+				hitbox[i].x = posxactual;
+				hitbox[i].y = 110;
+				hitbox[i].width = 70;
+				hitbox[i].height = 20;
+				DrawRectangleRec(hitbox[i], YELLOW);
 
-		posxactual += 80;
+				switch (hitbox[i].lives)
+				{
+				case 1:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, YELLOW);
+					break;
+				case 2:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, RED);
+					break;
+				case 3:
+					DrawRectangle((int)posxactual, (int)hitbox[i].y, 70, 20, BLUE);
+					break;
+				default:
+					break;
+				}
+				DrawRectangleRec(hitbox[i], YELLOW);
+			}
+
+			if (i < maxEnemies)
+			{
+				posxactual += 80;
+			}
+		}
+		
+		
 	}
 
 	void drawPowUps()
@@ -283,6 +290,7 @@ namespace Arkanoid
 			UnloadTexture(title);
 			UnloadTexture(credits);
 			UnloadTexture(inst);
+			pause = false;
 			game = true;
 		}
 
@@ -293,7 +301,7 @@ namespace Arkanoid
 
 		ClearBackground(BLACK);
 		DrawText("Felicidades!", 200, screenHeight / 4, 50, WHITE);
-		DrawText(FormatText(" %i", contadorP1), 260, 300, 30, WHITE);
+		DrawText(FormatText(" %i", puntaje), 260, 300, 30, WHITE);
 		DrawText(FormatText("Puntaje:"), 100, 300, 30, WHITE);
 
 	}
@@ -304,19 +312,18 @@ namespace Arkanoid
 		ClearBackground(BLACK);
 		DrawText("YOU DIED", 250, 100, 50, RED);
 		DrawText(FormatText("Puntaje:"), 300, 200, 30, WHITE);
-		DrawText(FormatText(" %i", contadorP1), 300, 250, 50, WHITE);
+		DrawText(FormatText(" %i", puntaje), 300, 250, 50, WHITE);
 		DrawText("Press Enter", 230, 350, 50, RED);
 
 		if (IsKeyPressed(KEY_ENTER))
 		{
 			playerLives = 3;
 			contadorNivel = 1;
-			enemigosRestantes = 30;
+			puntaje = 0;
+			enemigosRestantes = maxEnemies;
 			title = LoadTexture("Assets/Title.png");
 			credits = LoadTexture("Assets/PUP.png");
 		}
-
-		EndDrawing();
 	}
 
 	void draw()
@@ -325,26 +332,25 @@ namespace Arkanoid
 		ClearBackground(BLACK);
 		DrawTexture(backG, 0, 0, WHITE);
 
-		if (!game && contadorNivel == 1)
+		if ((!game && contadorNivel == 1 && enemigosRestantes == maxEnemies) || pause)
 		{
 			drawMenu();
 		}
 
 		if (game)
 		{
-			drawPlayer();
-			for (int i = 0; i < maxEnemies; i++)
-			{
-				drawLevel(i);
-			}
+			
 			if (playerLives > 0)
-			{
+			{   
+				drawPlayer();
+				drawLevel();
 				drawUI();
+				if (numberPUP < 1)
+				{
+					drawPowUps();
+				}
 			}
-			if (numberPUP < 1)
-			{
-				drawPowUps();
-			}
+			
 		}
 
 		if (!game && contadorNivel == 5 && playerLives > 0)
